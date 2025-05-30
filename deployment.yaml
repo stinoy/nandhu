@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: prod-test
+  name: deployment-2048
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: app-2048
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: app-2048
+    spec:
+      containers:
+        - image: public.ecr.aws/l6m2t8p7/docker-2048:latest
+          imagePullPolicy: Always
+          name: app-2048
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "500m"           # 0.5 CPU
+              memory: "256Mi"        # 256 MiB memory request
+            limits:
+              cpu: "1"              # 1 CPU limit
+              memory: "512Mi"       # 512 MiB memory limit
+~
+~
