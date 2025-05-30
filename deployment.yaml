@@ -26,5 +26,3 @@ spec:
             limits:
               cpu: "1"              # 1 CPU limit
               memory: "512Mi"       # 512 MiB memory limit
-~
-~
